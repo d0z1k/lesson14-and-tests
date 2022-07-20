@@ -30,14 +30,16 @@ import sqlite3
 
 con = sqlite3.connect("../netflix.db")
 cur = con.cursor()
-sqlite_query = ("")  # TODO измените код
+sqlite_query = ("""SELECT type, COUNT(title) FROM netflix
+WHERE country = 'India'
+GROUP BY type""")  # TODO измените код
 cur.execute(sqlite_query)
 executed_query = cur.fetchall()
 
 # TODO Результат запроса сохраните в переменной result
 # для последующей выдачи в требуемом формате
 
-result = ""
+result = executed_query
 
 con.close()
 
